@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Clock, MessageCircle } from 'lucide-react';
+import { useState } from "react";
+import { Mail, Phone, MapPin, Send, Clock, MessageCircle } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -17,7 +17,7 @@ export default function Contact() {
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
     }, 3000);
   };
 
@@ -34,8 +34,8 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-6xl font-bold mb-6">Get In Touch</h1>
           <p className="text-2xl text-amber-100 max-w-3xl">
-            Have questions? We'd love to hear from you. Send us a message and we'll respond as soon
-            as possible.
+            Have questions? We'd love to hear from you. Send us a message and
+            we'll respond as soon as possible.
           </p>
         </div>
       </section>
@@ -46,35 +46,41 @@ export default function Contact() {
             {[
               {
                 icon: Phone,
-                title: 'Call Us',
-                info: '+1 (555) 123-4567',
-                subInfo: 'Mon-Fri 9am-6pm',
-                color: 'from-blue-500 to-blue-600',
+                title: "Call Us",
+                info: "+92 336 9392262",
+                subInfo: "Mon-Fri 9am-6pm",
+                color: "from-blue-500 to-blue-600",
               },
               {
                 icon: Mail,
-                title: 'Email Us',
-                info: 'hello@solvexia.com',
-                subInfo: 'We reply within 24hrs',
-                color: 'from-amber-500 to-amber-600',
+                title: "Email Us",
+                info: "hello@solvexia.com",
+                subInfo: "We reply within 24hrs",
+                color: "from-amber-500 to-amber-600",
               },
               {
                 icon: MapPin,
-                title: 'Visit Us',
-                info: '123 Furniture Ave, NY 10001',
-                subInfo: 'Showroom open daily',
-                color: 'from-green-500 to-green-600',
+                title: "Visit Us",
+                info: "Rawal Chowk Furniture Market Rawalpindi",
+                subInfo: "Showroom open daily",
+                color: "from-green-500 to-green-600",
               },
             ].map((contact, index) => (
               <div
                 key={index}
                 className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center"
               >
-                <div className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${contact.color} text-white mb-4`}>
+                <div
+                  className={`inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br ${contact.color} text-white mb-4`}
+                >
                   <contact.icon size={28} />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{contact.title}</h3>
-                <p className="text-lg text-gray-800 font-semibold mb-1">{contact.info}</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                  {contact.title}
+                </h3>
+                <p className="text-lg text-gray-800 font-semibold mb-1">
+                  {contact.info}
+                </p>
                 <p className="text-gray-600">{contact.subInfo}</p>
               </div>
             ))}
@@ -82,7 +88,9 @@ export default function Contact() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="bg-white p-10 rounded-2xl shadow-xl">
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Send Us A Message</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Send Us A Message
+              </h2>
 
               {submitted && (
                 <div className="mb-6 p-4 bg-green-50 border-2 border-green-500 rounded-lg text-green-800 font-semibold animate-fade-in-up">
@@ -92,7 +100,9 @@ export default function Contact() {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Your Name</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Your Name
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -100,13 +110,15 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-amber-500 focus:outline-none transition-colors"
-                    placeholder="John Doe"
+                    placeholder="Your Name"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-gray-700 font-semibold mb-2">Email</label>
+                    <label className="block text-gray-700 font-semibold mb-2">
+                      Email
+                    </label>
                     <input
                       type="email"
                       name="email"
@@ -114,24 +126,28 @@ export default function Contact() {
                       onChange={handleChange}
                       required
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-amber-500 focus:outline-none transition-colors"
-                      placeholder="john@example.com"
+                      placeholder="solvexia@.pk"
                     />
                   </div>
                   <div>
-                    <label className="block text-gray-700 font-semibold mb-2">Phone</label>
+                    <label className="block text-gray-700 font-semibold mb-2">
+                      Phone
+                    </label>
                     <input
                       type="tel"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-amber-500 focus:outline-none transition-colors"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+92 336 9392262"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Subject</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Subject
+                  </label>
                   <input
                     type="text"
                     name="subject"
@@ -144,7 +160,9 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-semibold mb-2">Message</label>
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Message
+                  </label>
                   <textarea
                     name="message"
                     value={formData.message}
@@ -173,18 +191,21 @@ export default function Contact() {
                   {[
                     {
                       icon: Clock,
-                      title: 'Quick Response',
-                      description: 'We respond to all inquiries within 24 hours',
+                      title: "Quick Response",
+                      description:
+                        "We respond to all inquiries within 24 hours",
                     },
                     {
                       icon: MessageCircle,
-                      title: 'Expert Support',
-                      description: 'Our team is here to help with any questions',
+                      title: "Expert Support",
+                      description:
+                        "Our team is here to help with any questions",
                     },
                     {
                       icon: Phone,
-                      title: 'Personal Touch',
-                      description: 'Dedicated support for all your furniture needs',
+                      title: "Personal Touch",
+                      description:
+                        "Dedicated support for all your furniture needs",
                     },
                   ].map((feature, index) => (
                     <div key={index} className="flex items-start space-x-4">
@@ -192,7 +213,9 @@ export default function Contact() {
                         <feature.icon size={24} />
                       </div>
                       <div>
-                        <h3 className="font-bold text-lg mb-1">{feature.title}</h3>
+                        <h3 className="font-bold text-lg mb-1">
+                          {feature.title}
+                        </h3>
                         <p className="text-amber-100">{feature.description}</p>
                       </div>
                     </div>
@@ -201,14 +224,20 @@ export default function Contact() {
               </div>
 
               <div className="bg-white p-8 rounded-2xl shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Office Hours</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                  Office Hours
+                </h3>
                 <div className="space-y-3">
                   <div className="flex justify-between py-2 border-b">
-                    <span className="text-gray-700 font-semibold">Monday - Friday</span>
+                    <span className="text-gray-700 font-semibold">
+                      Monday - Friday
+                    </span>
                     <span className="text-gray-600">9:00 AM - 6:00 PM</span>
                   </div>
                   <div className="flex justify-between py-2 border-b">
-                    <span className="text-gray-700 font-semibold">Saturday</span>
+                    <span className="text-gray-700 font-semibold">
+                      Saturday
+                    </span>
                     <span className="text-gray-600">10:00 AM - 4:00 PM</span>
                   </div>
                   <div className="flex justify-between py-2">

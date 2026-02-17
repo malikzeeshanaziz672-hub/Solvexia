@@ -4,9 +4,9 @@ import ProductSlider from "../components/ProductSlider";
 const featuredProducts = [
   {
     id: 1,
-    name: "Luxury Velvet Sofa",
+    name: "Luxury Velvet Chairs",
     category: "Sofas",
-    price: 1299,
+    price: 30000,
     image:
       "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "Experience ultimate comfort with premium velvet upholstery",
@@ -15,7 +15,7 @@ const featuredProducts = [
     id: 2,
     name: "Modern Sectional",
     category: "Sofas",
-    price: 1799,
+    price: 49000,
     image:
       "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "Spacious and stylish, perfect for family gatherings",
@@ -24,7 +24,7 @@ const featuredProducts = [
     id: 3,
     name: "Designer Cushion Set",
     category: "Cushions",
-    price: 149,
+    price: 3000,
     image: "/solvexia_banner_1920x1080.jpg",
     // image:
     //   "https://images.pexels.com/photos/1143409/pexels-photo-1143409.jpeg?auto=compress&cs=tinysrgb&w=1200",

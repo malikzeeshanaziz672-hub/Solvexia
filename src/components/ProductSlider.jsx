@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ProductSlider({ products }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -34,10 +34,10 @@ export default function ProductSlider({ products }) {
             key={product.id}
             className={`absolute inset-0 transition-all duration-500 ease-in-out ${
               index === currentIndex
-                ? 'opacity-100 translate-x-0'
+                ? "opacity-100 translate-x-0"
                 : index < currentIndex
-                ? 'opacity-0 -translate-x-full'
-                : 'opacity-0 translate-x-full'
+                  ? "opacity-0 -translate-x-full"
+                  : "opacity-0 translate-x-full"
             }`}
           >
             <img
@@ -50,7 +50,7 @@ export default function ProductSlider({ products }) {
               <h3 className="text-4xl font-bold mb-2">{product.name}</h3>
               <p className="text-lg mb-4 opacity-90">{product.description}</p>
               <div className="flex items-center space-x-4">
-                <span className="text-3xl font-bold">${product.price}</span>
+                <span className="text-3xl font-bold">Rs/-{product.price}</span>
                 <button className="bg-amber-600 hover:bg-amber-700 px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105">
                   View Details
                 </button>
@@ -80,8 +80,8 @@ export default function ProductSlider({ products }) {
             onClick={() => setCurrentIndex(index)}
             className={`transition-all duration-300 rounded-full ${
               index === currentIndex
-                ? 'w-8 h-2 bg-white'
-                : 'w-2 h-2 bg-white/50 hover:bg-white/75'
+                ? "w-8 h-2 bg-white"
+                : "w-2 h-2 bg-white/50 hover:bg-white/75"
             }`}
           ></button>
         ))}

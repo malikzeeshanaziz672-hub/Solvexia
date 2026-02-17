@@ -26,7 +26,7 @@ export default function Navigation({ currentPage, onNavigate }) {
             onClick={() => handleNavClick("home")}
           >
             <img
-              src="/WhatsApp_Image_2026-02-14_at_6.27.02_PM.jpeg"
+              src="/logo.jpeg"
               alt="Solvexia"
               className="h-12 w-auto transform group-hover:scale-105 transition-transform duration-300"
             />
