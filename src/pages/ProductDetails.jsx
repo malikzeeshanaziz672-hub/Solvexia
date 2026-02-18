@@ -84,7 +84,14 @@ export default function ProductDetails({ productId }) {
                 </span>
 
                 <a
-                  href="https://wa.me/923369392262?text=Hello%20Solvexia,%20I%20want%20to%20order%20this%20product:%20"
+                  href={`https://wa.me/923369392262?text=${encodeURIComponent(
+                    `Hello Solvexia, I want to order this product:
+
+Name: ${product.name}
+Price: Rs-${product.price}
+
+Image: ${product.image}`,
+                  )}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-full font-semibold transition inline-block"
