@@ -165,17 +165,17 @@ export default function Home({ onNavigate }) {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                name: "Sarah Johnson",
+                name: "Malik Zeeshan Aziz",
                 rating: 5,
                 text: "The quality is outstanding! The sofa exceeded all my expectations. Highly recommend Solvexia.",
               },
               {
-                name: "Michael Chen",
+                name: "Zain Raza",
                 rating: 5,
                 text: "Beautiful furniture and excellent customer service. Our living room has never looked better.",
               },
               {
-                name: "Emma Wilson",
+                name: "Hamza Asghar",
                 rating: 5,
                 text: "From browsing to delivery, everything was perfect. The cushions are incredibly comfortable.",
               },

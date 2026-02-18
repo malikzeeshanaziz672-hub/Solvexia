@@ -8,14 +8,23 @@ import Contact from "./pages/Contact";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Shipping from "./pages/Shipping";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
-  const [currentPage, setCurrentPage] = useState("home");
+  const [route, setRoute] = useState({ page: "home", param: null });
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1) || "home";
-      setCurrentPage(hash);
+
+      // ✅ NEW: product details route like: #product/3
+      if (hash.startsWith("product/")) {
+        const id = hash.split("/")[1];
+        setRoute({ page: "product", param: id });
+        return;
+      }
+
+      setRoute({ page: hash, param: null });
     };
 
     window.addEventListener("hashchange", handleHashChange);
@@ -26,11 +35,16 @@ function App() {
 
   const handleNavigate = (page) => {
     window.location.hash = page;
-    setCurrentPage(page);
+    setRoute({ page, param: null });
   };
 
   const renderPage = () => {
-    switch (currentPage) {
+    // ✅ NEW: render product details page
+    if (route.page === "product") {
+      return <ProductDetails productId={route.param} />;
+    }
+
+    switch (route.page) {
       case "products":
         return <Products />;
       case "about":
@@ -50,7 +64,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation currentPage={currentPage} onNavigate={handleNavigate} />
+      <Navigation currentPage={route.page} onNavigate={handleNavigate} />
       <main>{renderPage()}</main>
       <Footer onNavigate={handleNavigate} />
     </div>
