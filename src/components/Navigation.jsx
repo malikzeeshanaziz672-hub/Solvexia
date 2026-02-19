@@ -8,6 +8,7 @@ export default function Navigation({ currentPage, onNavigate }) {
     { id: "home", label: "Home" },
     { id: "products", label: "Products" },
     { id: "about", label: "About" },
+    { id: "team", label: "The Solvexia Team" }, // ✅ NEW PAGE
     { id: "contact", label: "Contact" },
   ];
 
@@ -33,6 +34,7 @@ export default function Navigation({ currentPage, onNavigate }) {
             <span className="text-2xl font-bold text-amber-900">Solvexia</span>
           </div>
 
+          {/* Desktop Nav */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <button
@@ -56,26 +58,30 @@ export default function Navigation({ currentPage, onNavigate }) {
             ))}
           </div>
 
+          {/* Desktop CTA */}
           <button
-            onClick={() => onNavigate("products")}
+            onClick={() => handleNavClick("products")}
             className="hidden md:flex items-center space-x-2 bg-amber-700 text-white px-6 py-2.5 rounded-full hover:bg-amber-800 transition-all duration-300 transform hover:scale-105 shadow-md"
           >
             <ShoppingBag size={20} />
             <span>Shop Now</span>
           </button>
 
+          {/* Mobile Toggle */}
           <button
             className="md:hidden text-gray-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <div
         className={`md:hidden bg-white border-t overflow-hidden transition-all duration-300 ${
-          isMenuOpen ? "max-h-96" : "max-h-0"
+          isMenuOpen ? "max-h-[520px]" : "max-h-0"
         }`}
       >
         <div className="px-4 py-4 space-y-3">
@@ -92,7 +98,12 @@ export default function Navigation({ currentPage, onNavigate }) {
               {item.label}
             </button>
           ))}
-          <button className="w-full flex items-center justify-center space-x-2 bg-amber-700 text-white px-6 py-3 rounded-lg hover:bg-amber-800 transition-colors">
+
+          {/* Mobile CTA */}
+          <button
+            onClick={() => handleNavClick("products")}
+            className="w-full flex items-center justify-center space-x-2 bg-amber-700 text-white px-6 py-3 rounded-lg hover:bg-amber-800 transition-colors"
+          >
             <ShoppingBag size={20} />
             <span>Shop Now</span>
           </button>

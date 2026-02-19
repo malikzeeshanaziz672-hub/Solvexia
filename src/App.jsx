@@ -9,6 +9,7 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Terms from "./pages/Terms";
 import Shipping from "./pages/Shipping";
 import ProductDetails from "./pages/ProductDetails";
+import TheSolvexiaTeam from "./pages/The Solvexia Team";
 
 function App() {
   const [route, setRoute] = useState({ page: "home", param: null });
@@ -17,7 +18,7 @@ function App() {
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1) || "home";
 
-      // ✅ NEW: product details route like: #product/3
+      // ✅ product details route like: #product/3
       if (hash.startsWith("product/")) {
         const id = hash.split("/")[1];
         setRoute({ page: "product", param: id });
@@ -33,13 +34,17 @@ function App() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  // ✅ NEW: auto scroll to top on every route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [route.page, route.param]);
+
   const handleNavigate = (page) => {
     window.location.hash = page;
     setRoute({ page, param: null });
   };
 
   const renderPage = () => {
-    // ✅ NEW: render product details page
     if (route.page === "product") {
       return <ProductDetails productId={route.param} />;
     }
@@ -57,6 +62,8 @@ function App() {
         return <Terms />;
       case "shipping":
         return <Shipping />;
+      case "team":
+        return <TheSolvexiaTeam />;
       default:
         return <Home onNavigate={handleNavigate} />;
     }
