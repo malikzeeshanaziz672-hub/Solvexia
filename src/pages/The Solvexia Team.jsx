@@ -15,7 +15,7 @@ export default function TheSolvexiaTeam() {
       tags: ["Node", "APIs", "Database"],
     },
     {
-      name: "Sara Malik",
+      name: "Sara Khan",
       role: "UI/UX Designer",
       img: "/developers/sara.jpg",
       tags: ["Design System", "Figma", "Luxury UI"],
