@@ -1,23 +1,22 @@
 import { ArrowRight, Star, Truck, Shield, Award, Heart } from "lucide-react";
 import ProductSlider from "../components/ProductSlider";
-
+import productImage1 from "../images/productImage1.jfif";
 const featuredProducts = [
   {
     id: 1,
-    name: "Luxury Velvet Chairs",
-    category: "Sofas",
-    price: 30000,
+    name: "Velix Dinning Chairs",
+    category: "Chairs",
+    price: 31999,
     image:
       "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1200",
     description: "Experience ultimate comfort with premium velvet upholstery",
   },
   {
     id: 2,
-    name: "Modern Sectional",
+    name: "Rose Royal Sofa",
     category: "Sofas",
-    price: 49000,
-    image:
-      "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=1200",
+    price: 39999,
+    image: productImage1,
     description: "Spacious and stylish, perfect for family gatherings",
   },
   {
@@ -104,7 +103,7 @@ export default function Home({ onNavigate }) {
             <p className="text-xl text-gray-600">Excellence in every detail</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: Award,
@@ -113,15 +112,15 @@ export default function Home({ onNavigate }) {
                   "Crafted with the finest materials for lasting beauty",
                 color: "text-amber-600",
               },
-              {
-                icon: Truck,
-                title: "Free Delivery",
-                description: "Complimentary shipping on all orders",
-                color: "text-blue-600",
-              },
+              // {
+              //   icon: Truck,
+              //   title: "Free Delivery in few Cities",
+              //   description: "Complimentary shipping on all orders",
+              //   color: "text-blue-600",
+              // },
               {
                 icon: Shield,
-                title: "5-Year Warranty",
+                title: "10-Year Warranty",
                 description: "Complete peace of mind with every purchase",
                 color: "text-green-600",
               },
