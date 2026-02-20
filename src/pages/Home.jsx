@@ -1,37 +1,15 @@
-import { ArrowRight, Star, Truck, Shield, Award, Heart } from "lucide-react";
+import { ArrowRight, Star, Shield, Award, Heart } from "lucide-react";
 import ProductSlider from "../components/ProductSlider";
-import productImage1 from "../images/productImage1.jfif";
-const featuredProducts = [
-  {
-    id: 1,
-    name: "Velix Dinning Chairs",
-    category: "Chairs",
-    price: 31999,
-    image:
-      "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    description: "Experience ultimate comfort with premium velvet upholstery",
-  },
-  {
-    id: 2,
-    name: "Rose Royal Sofa",
-    category: "Sofas",
-    price: 39999,
-    image: productImage1,
-    description: "Spacious and stylish, perfect for family gatherings",
-  },
-  {
-    id: 3,
-    name: "Designer Cushion Set",
-    category: "Cushions",
-    price: 3000,
-    image: "/solvexia_banner_1920x1080.jpg",
-    // image:
-    //   "https://images.pexels.com/photos/1143409/pexels-photo-1143409.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    description: "Add a touch of elegance to any room",
-  },
-];
+import { products as allProducts } from "../data/products";
 
 export default function Home({ onNavigate }) {
+  // ✅ Pick featured products from ONE source (data/products)
+  // Option A: First 3 products
+  const featuredProducts = allProducts.slice(0, 3);
+
+  // Option B (recommended): Choose by IDs (set your real ids here)
+  // const featuredProducts = allProducts.filter((p) => [1, 7, 12].includes(p.id));
+
   return (
     <div className="min-h-screen">
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -85,11 +63,13 @@ export default function Home({ onNavigate }) {
       <section className="py-20 bg-gradient-to-b from-white to-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">Featured </h2>
+            <h2 className="text-5xl font-bold text-gray-900 mb-4">Featured</h2>
             <p className="text-xl text-gray-600">
               Handpicked pieces that define luxury living
             </p>
           </div>
+
+          {/* ✅ Now slider products are SAME as details products */}
           <ProductSlider products={featuredProducts} />
         </div>
       </section>
@@ -112,12 +92,6 @@ export default function Home({ onNavigate }) {
                   "Crafted with the finest materials for lasting beauty",
                 color: "text-amber-600",
               },
-              // {
-              //   icon: Truck,
-              //   title: "Free Delivery in few Cities",
-              //   description: "Complimentary shipping on all orders",
-              //   color: "text-blue-600",
-              // },
               {
                 icon: Shield,
                 title: "10-Year Warranty",
