@@ -11,6 +11,9 @@ import Shipping from "./pages/Shipping";
 import ProductDetails from "./pages/ProductDetails";
 import TheSolvexiaTeam from "./pages/The Solvexia Team";
 
+// ✅ IMPORTANT: Use ONE single products source everywhere
+import { products } from "./data/products"; // agar aapka path different ho to adjust kar lena
+
 function App() {
   const [route, setRoute] = useState({ page: "home", param: null });
 
@@ -34,7 +37,7 @@ function App() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
-  // ✅ NEW: auto scroll to top on every route change
+  // ✅ auto scroll to top on every route change
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [route.page, route.param]);
@@ -45,8 +48,11 @@ function App() {
   };
 
   const renderPage = () => {
+    // ✅ FIX: Pass the real product object from ONE source
     if (route.page === "product") {
-      return <ProductDetails productId={route.param} />;
+      const id = Number(route.param);
+      const product = products.find((p) => p.id === id);
+      return <ProductDetails product={product} />;
     }
 
     switch (route.page) {

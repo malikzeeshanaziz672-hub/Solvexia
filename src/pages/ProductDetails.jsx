@@ -1,13 +1,6 @@
-import { useMemo } from "react";
 import { ArrowLeft, Check } from "lucide-react";
-import { products } from "../data/products";
 
-export default function ProductDetails({ productId }) {
-  const product = useMemo(() => {
-    const id = Number(productId);
-    return products.find((p) => p.id === id);
-  }, [productId]);
-
+export default function ProductDetails({ product }) {
   if (!product) {
     return (
       <div className="min-h-screen pt-24 bg-gray-50">
