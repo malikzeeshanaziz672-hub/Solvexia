@@ -5,7 +5,7 @@ import productImage3 from "../images/productImage3.jfif";
 import productImage4 from "../images/productImage4.jfif";
 import productImage5 from "../images/productImage5.jfif";
 import productImage6 from "../images/productImg6.jfif";
-import productImage7 from "../images/productImg7.jfif";
+import productImage7 from "../images/productimg7.jfif";
 import productImage8 from "../images/productCushion1.jfif";
 import productImage9 from "../images/productCushion2.jfif";
 import productImage10 from "../images/productCushion3.jfif";
@@ -15,7 +15,7 @@ export const products = [
     id: 1,
     name: "Luna Curve luxury Sofa",
     category: "Sofas",
-    price: 69999,
+    price: "69,999",
     image: productImage7,
     description: "A sculpted curve of pure luxury and comfort",
     details: {
@@ -29,7 +29,7 @@ export const products = [
     id: 2,
     name: "Rose Royal Sofa",
     category: "Sofas",
-    price: 39999,
+    price: "39,999",
     image: productImage1,
     description:
       "Spacious 2 seater sofa sectional perfect for families and dressing rooms",
@@ -45,7 +45,7 @@ export const products = [
     id: 12,
     name: "The Round Cushion",
     category: "Cushions",
-    price: 1999,
+    price: "1,999",
     image: productImage10,
     description:
       "Round cushion made with premium Towel fabric.High detail stitching, rich colors & comfortable filling.",
@@ -60,7 +60,7 @@ export const products = [
     id: 4,
     name: "Azure Curve Sofa",
     category: "Sofas",
-    price: 54999,
+    price: "54,999",
     image: productImage4,
     description: "A sculpted curve of pure luxury and comfort",
     details: {
@@ -74,7 +74,7 @@ export const products = [
     id: 5,
     name: "Solvexia Aurex Cahir",
     category: "Chairs",
-    price: 27999,
+    price: "27,999",
     image: productImage5,
     description: "Spacious luxury Chair  , perfect for families",
     details: {
@@ -88,7 +88,7 @@ export const products = [
     id: 6,
     name: "Modern Sectional",
     category: "Sofas",
-    price: 49999,
+    price: "49,999",
     image:
       "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=600",
     description: "Spacious L-shaped sectional perfect for families",
@@ -103,7 +103,7 @@ export const products = [
     id: 7,
     name: "Luxury Midnight Ember",
     category: "Sofas",
-    price: 185000,
+    price: "1,85,000",
     image: illegalSofa,
     description:
       "A sculpted luxury sofa with deep channel tufting and a glowing base that transforms any space into a modern statement lounge.",
@@ -119,7 +119,7 @@ export const products = [
     id: 8,
     name: "Royal Mint Wingback Chairs",
     category: "Chairs",
-    price: 49999,
+    price: "49,999",
     image: productImage6,
     description: "Premium velvet upholstery with solid wood frame",
     details: {
@@ -133,7 +133,7 @@ export const products = [
     id: 9,
     name: "Modern Sectional",
     category: "Sofas",
-    price: 49999,
+    price: "49,999",
     image:
       "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=600",
     description: "Spacious L-shaped sectional perfect for families",
@@ -148,7 +148,7 @@ export const products = [
     id: 10,
     name: "Velix Dinning Chairs",
     category: "Cahirs",
-    price: 31999,
+    price: "31,999",
     image:
       "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600",
     description: "Spacious L-shaped sectional perfect for families",
@@ -163,7 +163,7 @@ export const products = [
     id: 11,
     name: "Lounge Chair",
     category: "Chairs",
-    price: 24999,
+    price: "24,999",
     image: productImage2,
     description: "Spacious sectional perfect for homes ,hotels and rooms",
     details: {
@@ -177,7 +177,7 @@ export const products = [
     id: 12,
     name: "Aristone Arm Chair",
     category: "Chairs",
-    price: 24999,
+    price: "24,999",
     image: productImage3,
     description: "Spacious Arm Chair perfect for families",
     details: {
@@ -192,7 +192,7 @@ export const products = [
     id: 13,
     name: "The Blood Moon Burst",
     category: "Cushions",
-    price: 2999,
+    price: "2,999",
     image: productImage9,
     description:
       "Premium decorative cushion in Valvet fabric .Soft, durable, and perfect for home styling.",
@@ -207,7 +207,7 @@ export const products = [
     id: 14,
     name: "Fully Customized Cushion",
     category: "Cushions",
-    price: 1499,
+    price: "1,499",
     image: productImage8,
     description:
       "Fully customizable with your photo and text.Premium print quality on soft, comfortable fabric.Perfect for gifting or keeping as a memory",
