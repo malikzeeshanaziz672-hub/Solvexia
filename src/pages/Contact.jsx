@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, Clock, MessageCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -11,21 +12,57 @@ export default function Contact() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e) => {
+  const SERVICE_ID = "service_jct6eww";
+  const TEMPLATE_ID = "template_da33qge";
+  const PUBLIC_KEY = "7jGKZUtG-h9UlI9p9";
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    }, 3000);
+    if (sending) return;
+
+    setSending(true);
+
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        PUBLIC_KEY,
+      );
+
+      setSubmitted(true);
+
+      setTimeout(() => {
+        setSubmitted(false);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+        setSending(false);
+      }, 3000);
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      setSending(false);
+      alert("Message send nahi hui. Please dobara try karein.");
+    }
   };
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
+    setFormData((prev) => ({
+      ...prev,
       [e.target.name]: e.target.value,
-    });
+    }));
   };
 
   return (
@@ -171,15 +208,16 @@ export default function Contact() {
                     rows={6}
                     className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:border-amber-500 focus:outline-none transition-colors resize-none"
                     placeholder="Tell us more about your inquiry..."
-                  ></textarea>
+                  />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-bold py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2"
+                  disabled={sending}
+                  className="w-full bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white font-bold py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg flex items-center justify-center space-x-2 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
                   <Send size={20} />
-                  <span>Send Message</span>
+                  <span>{sending ? "Sending..." : "Send Message"}</span>
                 </button>
               </form>
             </div>
@@ -247,21 +285,6 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-200 rounded-2xl overflow-hidden h-96">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.9476519598093!2d-73.98823492346681!3d40.74844097138558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1699999999999!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-            ></iframe>
           </div>
         </div>
       </section>
