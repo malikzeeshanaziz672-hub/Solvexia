@@ -3,7 +3,7 @@ import { Search, Filter, ShoppingCart } from "lucide-react";
 import ProductSlider from "../components/ProductSlider";
 import { products } from "../data/products";
 
-export default function Products() {
+export default function Products({ onNavigate }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -19,7 +19,8 @@ export default function Products() {
   });
 
   const handleView = (id) => {
-    window.location.hash = `product/${id}`;
+    // ✅ React Router URL
+    if (onNavigate) onNavigate(`/product/${id}`);
   };
 
   return (
@@ -32,7 +33,7 @@ export default function Products() {
           </p>
 
           <div className="mt-10">
-            <ProductSlider products={products} />
+            <ProductSlider products={products} onNavigate={onNavigate} />
           </div>
         </div>
       </section>
@@ -79,7 +80,7 @@ export default function Products() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProducts.map((product, index) => (
               <div
-                key={product.id}
+                key={`${product.id}-${index}`}
                 className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
                 style={{ animationDelay: `${index * 100}ms` }}
               >

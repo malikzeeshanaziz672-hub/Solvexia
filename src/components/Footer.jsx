@@ -1,6 +1,13 @@
 import { Facebook, Linkedin, Youtube, Mail } from "lucide-react";
 
 export default function Footer({ onNavigate }) {
+  const quickLinks = [
+    { label: "home", path: "/" },
+    { label: "products", path: "/products" },
+    { label: "about", path: "/about" },
+    { label: "contact", path: "/contact" },
+  ];
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -28,7 +35,6 @@ export default function Footer({ onNavigate }) {
                   Icon: Linkedin,
                   href: "https://www.linkedin.com/in/malik-zeeshan-aziz-8b507535a/",
                 },
-
                 {
                   Icon: Youtube,
                   href: "https://www.youtube.com/@Solvexia-q4l",
@@ -37,6 +43,8 @@ export default function Footer({ onNavigate }) {
                 <a
                   key={index}
                   href={href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="bg-gray-800 hover:bg-amber-600 p-2 rounded-lg transition-colors duration-300"
                 >
                   <Icon size={20} />
@@ -48,16 +56,13 @@ export default function Footer({ onNavigate }) {
           <div>
             <h3 className="text-lg font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {["home", "products", "about", "contact"].map((page) => (
-                <li key={page}>
+              {quickLinks.map((item) => (
+                <li key={item.path}>
                   <button
-                    onClick={() => {
-                      onNavigate(page);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
+                    onClick={() => onNavigate(item.path)}
                     className="text-gray-400 hover:text-amber-400 transition-colors capitalize"
                   >
-                    {page}
+                    {item.label}
                   </button>
                 </li>
               ))}
@@ -77,7 +82,11 @@ export default function Footer({ onNavigate }) {
               ].map((category) => (
                 <li key={category}>
                   <a
-                    href="#"
+                    href="/products"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigate("/products");
+                    }}
                     className="text-gray-400 hover:text-amber-400 transition-colors"
                   >
                     {category}
@@ -109,27 +118,28 @@ export default function Footer({ onNavigate }) {
           <p className="text-gray-400 text-sm mb-4 md:mb-0">
             &copy; 2026 Solvexia. All rights reserved.
           </p>
+
           <div className="flex space-x-6 text-sm">
-            <a
-              href="#privacy"
+            <button
+              onClick={() => onNavigate("/privacy-policy")}
               className="text-gray-400 hover:text-amber-400 transition-colors"
             >
               Privacy Policy
-            </a>
+            </button>
 
-            <a
-              href="#terms"
+            <button
+              onClick={() => onNavigate("/terms")}
               className="text-gray-400 hover:text-amber-400 transition-colors"
             >
               Terms of Service
-            </a>
+            </button>
 
-            <a
-              href="#shipping"
+            <button
+              onClick={() => onNavigate("/shipping")}
               className="text-gray-400 hover:text-amber-400 transition-colors"
             >
               Shipping Info
-            </a>
+            </button>
           </div>
         </div>
       </div>
