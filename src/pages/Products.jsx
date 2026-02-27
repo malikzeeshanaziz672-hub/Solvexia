@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Search, Filter, ShoppingCart } from "lucide-react";
 import ProductSlider from "../components/ProductSlider";
+import ProductSkeleton from "../components/ProductSkeleton";
 import { products } from "../data/products";
 
 export default function Products({ onNavigate }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(true);
 
   const categories = ["All", "Sofas", "Cushions", "Chairs", "Furniture"];
 
@@ -18,8 +20,14 @@ export default function Products({ onNavigate }) {
     return matchesCategory && matchesSearch;
   });
 
+  // ✅ Skeleton loader on filter/search changes
+  useEffect(() => {
+    setLoading(true);
+    const t = setTimeout(() => setLoading(false), 900);
+    return () => clearTimeout(t);
+  }, [selectedCategory, searchTerm]);
+
   const handleView = (id) => {
-    // ✅ React Router URL
     if (onNavigate) onNavigate(`/product/${id}`);
   };
 
@@ -78,52 +86,59 @@ export default function Products({ onNavigate }) {
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProducts.map((product, index) => (
-              <div
-                key={`${product.id}-${index}`}
-                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="relative overflow-hidden h-64">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <button className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg transform translate-y-[-100px] group-hover:translate-y-0 transition-transform duration-300">
-                    <ShoppingCart className="text-amber-600" size={20} />
-                  </button>
-                </div>
+            {/* ✅ Skeleton Cards */}
+            {loading
+              ? Array.from({ length: 6 }).map((_, i) => (
+                  <ProductSkeleton key={i} />
+                ))
+              : filteredProducts.map((product, index) => (
+                  <div
+                    key={`${product.id}-${index}`}
+                    className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="relative overflow-hidden h-64">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <button className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full shadow-lg transform translate-y-[-100px] group-hover:translate-y-0 transition-transform duration-300">
+                        <ShoppingCart className="text-amber-600" size={20} />
+                      </button>
+                    </div>
 
-                <div className="p-6">
-                  <span className="text-sm font-semibold text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
-                    {product.category}
-                  </span>
+                    <div className="p-6">
+                      <span className="text-sm font-semibold text-amber-600 bg-amber-50 px-3 py-1 rounded-full">
+                        {product.category}
+                      </span>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mt-3 mb-2">
-                    {product.name}
-                  </h3>
+                      <h3 className="text-2xl font-bold text-gray-900 mt-3 mb-2">
+                        {product.name}
+                      </h3>
 
-                  <p className="text-gray-600 mb-4">{product.description}</p>
+                      <p className="text-gray-600 mb-4">
+                        {product.description}
+                      </p>
 
-                  <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-amber-700">
-                      Rs-/{product.price}
-                    </span>
-                    <button
-                      onClick={() => handleView(product.id)}
-                      className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
-                    >
-                      View
-                    </button>
+                      <div className="flex items-center justify-between">
+                        <span className="text-3xl font-bold text-amber-700">
+                          Rs-/{product.price}
+                        </span>
+                        <button
+                          onClick={() => handleView(product.id)}
+                          className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105"
+                        >
+                          View
+                        </button>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            ))}
+                ))}
           </div>
 
-          {filteredProducts.length === 0 && (
+          {!loading && filteredProducts.length === 0 && (
             <div className="text-center py-20">
               <p className="text-2xl text-gray-600">
                 No products found matching your criteria

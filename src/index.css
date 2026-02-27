@@ -50,3 +50,28 @@
     scroll-behavior: smooth;
   }
 }
+@keyframes loaderBar {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(320%);
+  }
+}
+
+.animate-loader-bar {
+  animation: loaderBar 1.2s ease-in-out infinite;
+}
+@keyframes shimmerEffect {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+.shimmer {
+  background-size: 800px 100%;
+  animation: shimmerEffect 1.4s infinite linear;
+}

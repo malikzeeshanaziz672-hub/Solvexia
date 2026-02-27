@@ -1,5 +1,16 @@
+import { useEffect, useState } from "react";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useParams,
+  useLocation,
+} from "react-router-dom";
+
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import Loader from "./components/Loader";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -11,13 +22,6 @@ import Shipping from "./pages/Shipping";
 import ProductDetails from "./pages/ProductDetails";
 import TheSolvexiaTeam from "./pages/The Solvexia Team";
 
-import {
-  Routes,
-  Route,
-  Navigate,
-  useNavigate,
-  useParams,
-} from "react-router-dom";
 import { products } from "./data/products";
 
 // ✅ Wrapper: /product/:id -> ProductDetails with real product object
@@ -33,6 +37,22 @@ function ProductDetailsRoute() {
 
 export default function App() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const [loading, setLoading] = useState(true);
+
+  // ✅ first load
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 900);
+    return () => clearTimeout(t);
+  }, []);
+
+  // ✅ route change loader
+  useEffect(() => {
+    setLoading(true);
+    const t = setTimeout(() => setLoading(false), 500);
+    return () => clearTimeout(t);
+  }, [location.pathname]);
 
   // ✅ One navigation function for whole site (Navigation + Footer + Home buttons)
   const handleNavigate = (path) => {
@@ -42,7 +62,8 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* ✅ NEW Navigation usage */}
+      <Loader show={loading} />
+
       <Navigation onNavigate={handleNavigate} />
 
       <main>
@@ -59,10 +80,8 @@ export default function App() {
           <Route path="/shipping" element={<Shipping />} />
           <Route path="/team" element={<TheSolvexiaTeam />} />
 
-          {/* ✅ Product details */}
           <Route path="/product/:id" element={<ProductDetailsRoute />} />
 
-          {/* ✅ fallback */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
