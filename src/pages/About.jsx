@@ -5,7 +5,7 @@ export default function About() {
     <div className="min-h-screen pt-20">
       <section className="bg-gradient-to-r from-amber-700 to-amber-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-6xl font-bold mb-6">About Solvexia</h1>
+          <h1 className="text-6xl font-bold mb-6">About Solvexia Furniture</h1>
           <p className="text-2xl text-amber-100 max-w-3xl">
             Crafting comfort and elegance for over a decade
           </p>
@@ -20,9 +20,9 @@ export default function About() {
                 Our Story
               </h2>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
-                Founded in 2024, Solvexia began with a simple vision: to create
-                furniture that doesn't just fill spaces, but transforms them
-                into havens of comfort and style.
+                Founded in 2024, Solvexia Furniture began with a simple vision:
+                to create furniture that doesn't just fill spaces, but
+                transforms them into havens of comfort and style.
               </p>
               <p className="text-lg text-gray-700 mb-4 leading-relaxed">
                 What started as a small workshop has grown into a trusted name
