@@ -209,58 +209,50 @@ export default function Home({ onNavigate }) {
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=1920"
-            alt="Luxury furniture showroom background"
-            className="w-full h-full object-cover animate-slow-zoom"
+            alt="Solvexia luxury furniture showroom"
+            className="w-full h-full object-cover scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30"></div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <div className="max-w-3xl animate-fade-in-up">
-            {/* ✅ SEO-friendly H1 */}
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 leading-tight">
-              Solvexia Furniture
-              <span className="block text-amber-400">
+        <div className="relative z-10 max-w-6xl mx-auto px-6 text-white">
+          <div className="max-w-2xl">
+            {/* 🔥 Small luxury badge */}
+            <span className="inline-block mt-10 mb-6 px-4 py-1.5 text-sm tracking-widest uppercase bg-amber-600/90 rounded-full shadow-lg">
+              Premium Furniture Brand
+            </span>
+
+            {/* ✅ Proper styled SEO H1 */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight tracking-tight">
+              Solvexia
+              <span className="block text-amber-400 font-semibold mt-2 text-3xl md:text-4xl lg:text-5xl">
                 Luxury Sofas & Custom Furniture in Pakistan
               </span>
             </h1>
 
-            {/* ✅ Brand clarity paragraph */}
-            <p className="text-xl md:text-2xl mb-6 text-gray-200">
-              Discover premium sofas, cushions, and modern furniture crafted for
-              comfort and elegance.
+            {/* ✅ Supporting SEO paragraph */}
+            <p className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed max-w-xl">
+              Discover handcrafted premium sofas, designer cushions, and modern
+              furniture pieces built with comfort, durability, and timeless
+              elegance.
             </p>
 
-            <p className="text-base md:text-lg text-gray-300 mb-8 leading-relaxed">
-              Solvexia is a premium furniture brand in Pakistan specializing in
-              luxury sofas, custom designs, and interior-ready furniture pieces
-              — built with quality craftsmanship.
-            </p>
-
-            <div className="flex flex-wrap gap-4">
+            {/* CTA Buttons */}
+            <div className="mt-10 flex flex-wrap gap-4">
               <button
                 onClick={() => onNavigate("/products")}
-                className="group bg-amber-600 hover:bg-amber-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl flex items-center space-x-2"
+                className="bg-amber-600 hover:bg-amber-700 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
               >
-                <span>Explore Collection</span>
-                <ArrowRight
-                  className="group-hover:translate-x-1 transition-transform"
-                  size={20}
-                />
+                Explore Collection
               </button>
+
               <button
                 onClick={() => onNavigate("/contact")}
-                className="bg-white/10 backdrop-blur-sm hover:bg-white/20 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 border-2 border-white/30"
+                className="border-2 border-white/40 hover:bg-white/20 px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300"
               >
                 Contact Us
               </button>
             </div>
-          </div>
-        </div>
-
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-white/50 rounded-full flex items-start justify-center p-2">
-            <div className="w-1.5 h-3 bg-white/70 rounded-full animate-scroll"></div>
           </div>
         </div>
       </section>
