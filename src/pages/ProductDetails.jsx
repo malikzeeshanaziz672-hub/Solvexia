@@ -1,6 +1,9 @@
 import { ArrowLeft, Check } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductDetails({ product }) {
+  const navigate = useNavigate();
+
   if (!product) {
     return (
       <div className="min-h-screen pt-24 bg-gray-50">
@@ -10,7 +13,7 @@ export default function ProductDetails({ product }) {
               Product not found
             </p>
             <button
-              onClick={() => (window.location.hash = "products")}
+              onClick={() => navigate("/products")}
               className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-full font-semibold"
             >
               Back to Products
@@ -40,7 +43,7 @@ export default function ProductDetails({ product }) {
           </div>
 
           <button
-            onClick={() => (window.location.hash = "products")}
+            onClick={() => navigate("/products")}
             className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 px-5 py-3 rounded-full font-semibold transition"
           >
             <ArrowLeft size={18} />
@@ -137,7 +140,7 @@ Image: ${product.image}`,
                 Size, color, or fabric — we can customize it for you.
               </p>
               <button
-                onClick={() => (window.location.hash = "contact")}
+                onClick={() => navigate("/contact")}
                 className="mt-5 bg-amber-600 hover:bg-amber-700 px-6 py-3 rounded-full font-semibold transition"
               >
                 Contact Solvexia

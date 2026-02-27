@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import About from "./pages/About";
@@ -11,77 +11,63 @@ import Shipping from "./pages/Shipping";
 import ProductDetails from "./pages/ProductDetails";
 import TheSolvexiaTeam from "./pages/The Solvexia Team";
 
-// ✅ IMPORTANT: Use ONE single products source everywhere
-import { products } from "./data/products"; // agar aapka path different ho to adjust kar lena
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  useParams,
+} from "react-router-dom";
+import { products } from "./data/products";
 
-function App() {
-  const [route, setRoute] = useState({ page: "home", param: null });
+// ✅ Wrapper: /product/:id -> ProductDetails with real product object
+function ProductDetailsRoute() {
+  const { id } = useParams();
+  const productId = Number(id);
+  const product = products.find((p) => p.id === productId);
 
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.slice(1) || "home";
+  if (!product) return <Navigate to="/products" replace />;
 
-      // ✅ product details route like: #product/3
-      if (hash.startsWith("product/")) {
-        const id = hash.split("/")[1];
-        setRoute({ page: "product", param: id });
-        return;
-      }
+  return <ProductDetails product={product} />;
+}
 
-      setRoute({ page: hash, param: null });
-    };
+export default function App() {
+  const navigate = useNavigate();
 
-    window.addEventListener("hashchange", handleHashChange);
-    handleHashChange();
-
-    return () => window.removeEventListener("hashchange", handleHashChange);
-  }, []);
-
-  // ✅ auto scroll to top on every route change
-  useEffect(() => {
+  // ✅ One navigation function for whole site (Navigation + Footer + Home buttons)
+  const handleNavigate = (path) => {
+    navigate(path);
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-  }, [route.page, route.param]);
-
-  const handleNavigate = (page) => {
-    window.location.hash = page;
-    setRoute({ page, param: null });
-  };
-
-  const renderPage = () => {
-    // ✅ FIX: Pass the real product object from ONE source
-    if (route.page === "product") {
-      const id = Number(route.param);
-      const product = products.find((p) => p.id === id);
-      return <ProductDetails product={product} />;
-    }
-
-    switch (route.page) {
-      case "products":
-        return <Products />;
-      case "about":
-        return <About />;
-      case "contact":
-        return <Contact />;
-      case "privacy":
-        return <PrivacyPolicy />;
-      case "terms":
-        return <Terms />;
-      case "shipping":
-        return <Shipping />;
-      case "team":
-        return <TheSolvexiaTeam />;
-      default:
-        return <Home onNavigate={handleNavigate} />;
-    }
   };
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation currentPage={route.page} onNavigate={handleNavigate} />
-      <main>{renderPage()}</main>
+      {/* ✅ NEW Navigation usage */}
+      <Navigation onNavigate={handleNavigate} />
+
+      <main>
+        <Routes>
+          <Route path="/" element={<Home onNavigate={handleNavigate} />} />
+          <Route
+            path="/products"
+            element={<Products onNavigate={handleNavigate} />}
+          />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<Terms />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/team" element={<TheSolvexiaTeam />} />
+
+          {/* ✅ Product details */}
+          <Route path="/product/:id" element={<ProductDetailsRoute />} />
+
+          {/* ✅ fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </main>
+
       <Footer onNavigate={handleNavigate} />
     </div>
   );
 }
-
-export default App;

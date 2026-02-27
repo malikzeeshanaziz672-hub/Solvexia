@@ -1,21 +1,27 @@
 import { Menu, X, ShoppingBag } from "lucide-react";
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
-export default function Navigation({ currentPage, onNavigate }) {
+export default function Navigation({ onNavigate }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "products", label: "Products" },
-    { id: "about", label: "About" },
-    { id: "team", label: "The Solvexia Team" }, // ✅ NEW PAGE
-    { id: "contact", label: "Contact" },
+    { path: "/", label: "Home" },
+    { path: "/products", label: "Products" },
+    { path: "/about", label: "About" },
+    { path: "/team", label: "The Solvexia Team" },
+    { path: "/contact", label: "Contact" },
   ];
 
-  const handleNavClick = (page) => {
-    onNavigate(page);
+  const handleNavClick = (path) => {
+    onNavigate(path);
     setIsMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  const isActive = (path) => {
+    if (path === "/") return location.pathname === "/";
+    return location.pathname.startsWith(path);
   };
 
   return (
@@ -24,7 +30,7 @@ export default function Navigation({ currentPage, onNavigate }) {
         <div className="flex justify-between items-center h-20">
           <div
             className="flex items-center space-x-3 cursor-pointer group"
-            onClick={() => handleNavClick("home")}
+            onClick={() => handleNavClick("/")}
           >
             <img
               src="/logo.jpeg"
@@ -38,10 +44,10 @@ export default function Navigation({ currentPage, onNavigate }) {
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <button
-                key={item.id}
-                onClick={() => handleNavClick(item.id)}
+                key={item.path}
+                onClick={() => handleNavClick(item.path)}
                 className={`text-lg font-medium transition-all duration-300 relative group ${
-                  currentPage === item.id
+                  isActive(item.path)
                     ? "text-amber-800"
                     : "text-gray-700 hover:text-amber-700"
                 }`}
@@ -49,7 +55,7 @@ export default function Navigation({ currentPage, onNavigate }) {
                 {item.label}
                 <span
                   className={`absolute bottom-0 left-0 w-full h-0.5 bg-amber-600 transform origin-left transition-transform duration-300 ${
-                    currentPage === item.id
+                    isActive(item.path)
                       ? "scale-x-100"
                       : "scale-x-0 group-hover:scale-x-100"
                   }`}
@@ -60,7 +66,7 @@ export default function Navigation({ currentPage, onNavigate }) {
 
           {/* Desktop CTA */}
           <button
-            onClick={() => handleNavClick("products")}
+            onClick={() => handleNavClick("/products")}
             className="hidden md:flex items-center space-x-2 bg-amber-700 text-white px-6 py-2.5 rounded-full hover:bg-amber-800 transition-all duration-300 transform hover:scale-105 shadow-md"
           >
             <ShoppingBag size={20} />
@@ -87,10 +93,10 @@ export default function Navigation({ currentPage, onNavigate }) {
         <div className="px-4 py-4 space-y-3">
           {navItems.map((item) => (
             <button
-              key={item.id}
-              onClick={() => handleNavClick(item.id)}
+              key={item.path}
+              onClick={() => handleNavClick(item.path)}
               className={`block w-full text-left px-4 py-3 rounded-lg transition-colors duration-200 ${
-                currentPage === item.id
+                isActive(item.path)
                   ? "bg-amber-100 text-amber-800 font-semibold"
                   : "text-gray-700 hover:bg-gray-100"
               }`}
@@ -101,7 +107,7 @@ export default function Navigation({ currentPage, onNavigate }) {
 
           {/* Mobile CTA */}
           <button
-            onClick={() => handleNavClick("products")}
+            onClick={() => handleNavClick("/products")}
             className="w-full flex items-center justify-center space-x-2 bg-amber-700 text-white px-6 py-3 rounded-lg hover:bg-amber-800 transition-colors"
           >
             <ShoppingBag size={20} />
