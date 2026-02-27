@@ -24,6 +24,33 @@ export default function ProductDetails({ product }) {
     );
   }
 
+  // ✅ Always use LIVE site base URL for WhatsApp (no localhost)
+  const SITE_URL = "https://www.solvexia.pk";
+
+  // ✅ Product page URL (public)
+  const productUrl = `${SITE_URL}/product/${product.id}`;
+
+  // ✅ Image URL: if already absolute (http/https) use it, else make it absolute
+  const imageUrl =
+    typeof product.image === "string" && product.image.startsWith("http")
+      ? product.image
+      : `${SITE_URL}${product.image}`;
+
+  const waText = `Hello Solvexia 👋
+
+I want to order:
+
+🛋️ ${product.name}
+💰 Rs-${product.price}
+
+🔗 Product Link:
+${productUrl}
+
+🖼️ Image Link:
+${imageUrl}`;
+
+  const waLink = `https://wa.me/923369392262?text=${encodeURIComponent(waText)}`;
+
   const specs = [
     { label: "Category", value: product.category },
     { label: "Material", value: product.details?.material || "—" },
@@ -80,20 +107,39 @@ export default function ProductDetails({ product }) {
                 </span>
 
                 <a
-                  href={`https://wa.me/923369392262?text=${encodeURIComponent(
-                    `Hello Solvexia, I want to order this product:
-
-Name: ${product.name}
-Price: Rs-${product.price}
-
-Image: ${product.image}`,
-                  )}`}
+                  href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-full font-semibold transition inline-block"
                 >
                   Order Now
                 </a>
+              </div>
+
+              {/* Optional: show clickable URLs for testing */}
+              <div className="mt-6 text-sm text-gray-500">
+                <p>
+                  <span className="font-semibold">Product URL:</span>{" "}
+                  <a
+                    href={productUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-700 underline"
+                  >
+                    {productUrl}
+                  </a>
+                </p>
+                <p className="mt-1">
+                  <span className="font-semibold">Image URL:</span>{" "}
+                  <a
+                    href={imageUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-amber-700 underline"
+                  >
+                    {imageUrl}
+                  </a>
+                </p>
               </div>
             </div>
           </div>
