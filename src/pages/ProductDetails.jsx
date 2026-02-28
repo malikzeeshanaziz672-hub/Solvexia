@@ -30,12 +30,6 @@ export default function ProductDetails({ product }) {
   // ✅ Product page URL (public)
   const productUrl = `${SITE_URL}/product/${product.id}`;
 
-  // ✅ Image URL: if already absolute (http/https) use it, else make it absolute
-  const imageUrl =
-    typeof product.image === "string" && product.image.startsWith("http")
-      ? product.image
-      : `${SITE_URL}${product.image}`;
-
   const waText = `Hello Solvexia 👋
 
 I want to order:
@@ -44,10 +38,7 @@ I want to order:
 💰 Rs-${product.price}
 
 🔗 Product Link:
-${productUrl}
-
-🖼️ Image Link:
-${imageUrl}`;
+${productUrl}`;
 
   const waLink = `https://wa.me/923369392262?text=${encodeURIComponent(waText)}`;
 
