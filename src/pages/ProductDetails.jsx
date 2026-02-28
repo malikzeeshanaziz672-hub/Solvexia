@@ -80,9 +80,10 @@ ${imageUrl}`;
       </section>
 
       <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10">
-          <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-            <div className="relative h-[380px]">
+        <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-[auto_auto_auto] gap-6">
+          {/* Left card: spans only Specifications + Key Features rows */}
+          <div className="lg:row-span-2 bg-white rounded-2xl shadow-md overflow-hidden flex flex-col h-full">
+            <div className="relative flex-1 min-h-[220px]">
               <img
                 src={product.image}
                 alt={product.name}
@@ -96,12 +97,12 @@ ${imageUrl}`;
               </div>
             </div>
 
-            <div className="p-7">
+            <div className="p-7 flex-shrink-0">
               <p className="text-gray-700 leading-relaxed">
                 {product.description}
               </p>
 
-              <div className="mt-6 flex items-center justify-between">
+              <div className="mt-6 flex items-center justify-between flex-wrap gap-3">
                 <span className="text-4xl font-bold text-amber-700">
                   Rs-/{product.price}
                 </span>
@@ -115,72 +116,48 @@ ${imageUrl}`;
                   Order Now
                 </a>
               </div>
-
-              {/* Optional: show clickable URLs for testing */}
-              <div className="mt-6 text-sm text-gray-500">
-                <p>
-                  <span className="font-semibold">Product URL:</span>{" "}
-                  <a
-                    href={productUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-amber-700 underline"
-                  >
-                    {productUrl}
-                  </a>
-                </p>
-                <p className="mt-1">
-                  <span className="font-semibold">Image URL:</span>{" "}
-                  <a
-                    href={imageUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-amber-700 underline"
-                  >
-                    {imageUrl}
-                  </a>
-                </p>
-              </div>
             </div>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl shadow-md p-7">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Specifications
-              </h2>
+          {/* Specifications - row 1 */}
+          <div className="bg-white rounded-2xl shadow-md p-7">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Specifications
+            </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {specs.map((item) => (
-                  <div
-                    key={item.label}
-                    className="border border-gray-200 rounded-xl p-4"
-                  >
-                    <p className="text-sm text-gray-500">{item.label}</p>
-                    <p className="font-bold text-gray-900 mt-1">{item.value}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {specs.map((item) => (
+                <div
+                  key={item.label}
+                  className="border border-gray-200 rounded-xl p-4"
+                >
+                  <p className="text-sm text-gray-500">{item.label}</p>
+                  <p className="font-bold text-gray-900 mt-1">{item.value}</p>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="bg-white rounded-2xl shadow-md p-7">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Key Features
-              </h2>
+          {/* Key Features - row 2 */}
+          <div className="bg-white rounded-2xl shadow-md p-7">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+              Key Features
+            </h2>
 
-              <div className="space-y-3">
-                {(product.details?.features || []).map((f) => (
-                  <div key={f} className="flex items-start gap-3">
-                    <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-50">
-                      <Check className="text-amber-700" size={16} />
-                    </span>
-                    <p className="text-gray-700">{f}</p>
-                  </div>
-                ))}
-              </div>
+            <div className="space-y-3">
+              {(product.details?.features || []).map((f) => (
+                <div key={f} className="flex items-start gap-3">
+                  <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-50">
+                    <Check className="text-amber-700" size={16} />
+                  </span>
+                  <p className="text-gray-700">{f}</p>
+                </div>
+              ))}
             </div>
+          </div>
 
-            <div className="bg-gradient-to-r from-gray-900 to-black rounded-2xl p-7 text-white">
+          {/* Need Customization - row 3 */}
+          <div className="lg:col-start-2 lg:row-start-3 bg-gradient-to-r from-gray-900 to-black rounded-2xl p-7 text-white">
               <h3 className="text-2xl font-bold">Need Customization?</h3>
               <p className="text-gray-200 mt-2">
                 Size, color, or fabric — we can customize it for you.
@@ -192,7 +169,6 @@ ${imageUrl}`;
                 Contact Solvexia
               </button>
             </div>
-          </div>
         </div>
       </section>
     </div>
