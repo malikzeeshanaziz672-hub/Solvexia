@@ -17,7 +17,7 @@ export const products = [
     category: "Sofas",
     price: "69,999",
     image: productImage7,
-    description: "A sculpted curve of pure luxury and comfort",
+    description: "A sculpted curve of pure luxury and comfort (3 seater sofa)",
     details: {
       material: "Soft Fabric",
       warranty: "10 Years",
@@ -42,7 +42,7 @@ export const products = [
   },
 
   {
-    id: 12,
+    id: 3,
     name: "The Round Cushion",
     category: "Cushions",
     price: "1,999",
@@ -62,7 +62,7 @@ export const products = [
     category: "Sofas",
     price: "54,999",
     image: productImage4,
-    description: "A sculpted curve of pure luxury and comfort",
+    description: "A sculpted curve of pure luxury and comfort (3 seater sofa)",
     details: {
       material: "Soft Fabric",
       warranty: "10 Years",
@@ -91,7 +91,7 @@ export const products = [
     price: "49,999",
     image:
       "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=600",
-    description: "Spacious L-shaped sectional perfect for families",
+    description: "Spacious 3 seater sofa sectional perfect for families",
     details: {
       material: "Soft Fabric",
       warranty: "10 Years",
@@ -106,7 +106,7 @@ export const products = [
     price: "1,85,000",
     image: illegalSofa,
     description:
-      "A sculpted luxury sofa with deep channel tufting and a glowing base that transforms any space into a modern statement lounge.",
+      "A sculpted luxury sofa with deep channel tufting and a glowing base that transforms any space into a modern statement lounge (3 seater sofa).",
     details: {
       material: "Soft Fabric",
       warranty: "10 Years",
@@ -121,7 +121,7 @@ export const products = [
     category: "Chairs",
     price: "49,999",
     image: productImage6,
-    description: "Premium velvet upholstery with solid wood frame",
+    description: "Premium velvet upholstery with solid wood frame (Pair)",
     details: {
       material: "Premium Velvet",
       warranty: "10 Years",
@@ -136,7 +136,7 @@ export const products = [
     price: "49,999",
     image:
       "https://images.pexels.com/photos/1866149/pexels-photo-1866149.jpeg?auto=compress&cs=tinysrgb&w=600",
-    description: "Spacious L-shaped sectional perfect for families",
+    description: "Spacious 3 seater sofa sectional perfect for families",
     details: {
       material: "Soft Fabric",
       warranty: "10 Years",
@@ -147,11 +147,12 @@ export const products = [
   {
     id: 10,
     name: "Velix Dinning Chairs",
-    category: "Cahirs",
+    category: "Chairs",
     price: "31,999",
     image:
       "https://images.pexels.com/photos/1350789/pexels-photo-1350789.jpeg?auto=compress&cs=tinysrgb&w=600",
-    description: "Spacious L-shaped sectional perfect for families",
+    description:
+      "Spacious sectional perfect for homes ,hotels and rooms (Pair with table)",
     details: {
       material: "Soft Fabric",
       warranty: "10 Years",
@@ -163,9 +164,10 @@ export const products = [
     id: 11,
     name: "Lounge Chair",
     category: "Chairs",
-    price: "24,999",
+    price: "49,999",
     image: productImage2,
-    description: "Spacious sectional perfect for homes ,hotels and rooms",
+    description:
+      "Spacious sectional perfect for homes ,hotels and rooms (Pair)",
     details: {
       material: "Soft Fabric",
       warranty: "10 Years",
@@ -177,9 +179,9 @@ export const products = [
     id: 12,
     name: "Aristone Arm Chair",
     category: "Chairs",
-    price: "24,999",
+    price: "47,999",
     image: productImage3,
-    description: "Spacious Arm Chair perfect for families",
+    description: "Spacious Arm Chair perfect for families (Pair)",
     details: {
       material: "Soft Fabric",
       warranty: "10 Years",
