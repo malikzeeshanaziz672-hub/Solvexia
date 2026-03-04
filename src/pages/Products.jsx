@@ -9,7 +9,7 @@ export default function Products({ onNavigate }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [loading, setLoading] = useState(true);
 
-  const categories = ["All", "Sofas", "Cushions", "Chairs", "Furniture"];
+  const categories = ["All", "Sofas", "Cushions", "Chairs", "Beds"];
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory =

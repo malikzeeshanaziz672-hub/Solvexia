@@ -9,6 +9,8 @@ import productImage7 from "../images/productimg7.jfif";
 import productImage8 from "../images/productCushion1.jfif";
 import productImage9 from "../images/productCushion2.jfif";
 import productImage10 from "../images/productCushion3.jfif";
+import productImage11 from "../images/cushionBed2.jpeg";
+import productImage12 from "../images/cushionBed1.webp";
 
 export const products = [
   {
@@ -114,9 +116,24 @@ export const products = [
       features: ["3 seater sofa", "Spacious seating", "Easy clean fabric"],
     },
   },
-
   {
     id: 8,
+    name: "Luxury Aura Bed",
+    category: "Beds",
+    price: "74,999",
+    image: productImage12,
+    description:
+      "A statement luxury bed featuring a plush upholstered headboard, warm ambient lighting, and a modern design crafted for elegant comfort.",
+    details: {
+      material: "Soft Fabric",
+      warranty: "10 Years",
+      delivery: "10-15 Working Days",
+      features: ["3 seater sofa", "Spacious seating", "Easy clean fabric"],
+    },
+  },
+
+  {
+    id: 9,
     name: "Royal Mint Wingback Chairs",
     category: "Chairs",
     price: "49,999",
@@ -130,7 +147,7 @@ export const products = [
     },
   },
   {
-    id: 9,
+    id: 10,
     name: "Modern Sectional",
     category: "Sofas",
     price: "49,999",
@@ -145,7 +162,7 @@ export const products = [
     },
   },
   {
-    id: 10,
+    id: 11,
     name: "Velix Dinning Chairs",
     category: "Chairs",
     price: "31,999",
@@ -161,7 +178,7 @@ export const products = [
     },
   },
   {
-    id: 11,
+    id: 12,
     name: "Lounge Chair",
     category: "Chairs",
     price: "49,999",
@@ -176,7 +193,7 @@ export const products = [
     },
   },
   {
-    id: 12,
+    id: 13,
     name: "Aristone Arm Chair",
     category: "Chairs",
     price: "47,999",
@@ -191,7 +208,7 @@ export const products = [
   },
 
   {
-    id: 13,
+    id: 14,
     name: "The Blood Moon Burst",
     category: "Cushions",
     price: "2,999",
@@ -206,13 +223,28 @@ export const products = [
     },
   },
   {
-    id: 14,
+    id: 15,
     name: "Fully Customized Cushion",
     category: "Cushions",
     price: "1,499",
     image: productImage8,
     description:
       "Fully customizable with your photo and text.Premium print quality on soft, comfortable fabric.Perfect for gifting or keeping as a memory",
+    details: {
+      material: "Soft Fabric",
+      warranty: "2 Years",
+      delivery: "5-8 Working Days",
+      features: ["Easy clean  fabric"],
+    },
+  },
+  {
+    id: 16,
+    name: "Solvexia Luna Bed",
+    category: "Beds",
+    price: "74,999",
+    image: productImage11,
+    description:
+      "A statement luxury bed featuring a plush upholstered headboard, warm ambient lighting, and a modern design crafted for elegant comfort.",
     details: {
       material: "Soft Fabric",
       warranty: "2 Years",

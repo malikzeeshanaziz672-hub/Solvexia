@@ -33,7 +33,7 @@ export default function Footer({ onNavigate }) {
                 },
                 {
                   Icon: Linkedin,
-                  href: "https://www.linkedin.com/in/malik-zeeshan-aziz-8b507535a/",
+                  href: "https://www.linkedin.com/company/solvexiaofficial/?viewAsMember=true",
                 },
                 {
                   Icon: Youtube,
