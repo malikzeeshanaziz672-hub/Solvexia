@@ -126,6 +126,14 @@ export default function Home({ onNavigate }) {
             ))}
           </div>
         </div>
+        <div className="flex justify-center items-center text-center mt-6">
+          <button
+            onClick={() => onNavigate("/products")}
+            className="bg-white text-amber-900 hover:bg-gray-100 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
+          >
+            View all....
+          </button>
+        </div>
       </section>
 
       <section className="py-20 bg-white">
