@@ -15,7 +15,7 @@ import productImage12 from "../images/cushionBed1.webp";
 export const products = [
   {
     id: 1,
-    name: "Luna Curve luxury Sofa",
+    name: "Luna Curve Sofa",
     category: "Sofas",
     price: "69,999",
     image: productImage7,
@@ -29,17 +29,17 @@ export const products = [
   },
   {
     id: 2,
-    name: "Rose Royal Sofa",
-    category: "Sofas",
-    price: "39,999",
-    image: productImage1,
+    name: "Luxury Aura Bed",
+    category: "Beds",
+    price: "74,999",
+    image: productImage12,
     description:
-      "Spacious 2 seater sofa sectional perfect for families and dressing rooms",
+      "A statement luxury bed featuring a plush upholstered headboard, warm ambient lighting, and a modern design crafted for elegant comfort.",
     details: {
-      material: "Soft Fabric (available in all fabric)",
+      material: "Soft Fabric",
       warranty: "10 Years",
       delivery: "10-15 Working Days",
-      features: ["Spacious seating", "Easy clean fabric"],
+      features: ["3 seater sofa", "Spacious seating", "Easy clean fabric"],
     },
   },
 
@@ -118,17 +118,17 @@ export const products = [
   },
   {
     id: 8,
-    name: "Luxury Aura Bed",
-    category: "Beds",
-    price: "74,999",
-    image: productImage12,
+    name: "Rose Royal Sofa",
+    category: "Sofas",
+    price: "39,999",
+    image: productImage1,
     description:
-      "A statement luxury bed featuring a plush upholstered headboard, warm ambient lighting, and a modern design crafted for elegant comfort.",
+      "Spacious 2 seater sofa sectional perfect for families and dressing rooms",
     details: {
-      material: "Soft Fabric",
+      material: "Soft Fabric (available in all fabric)",
       warranty: "10 Years",
       delivery: "10-15 Working Days",
-      features: ["3 seater sofa", "Spacious seating", "Easy clean fabric"],
+      features: ["Spacious seating", "Easy clean fabric"],
     },
   },
 
