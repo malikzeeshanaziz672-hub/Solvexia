@@ -1,9 +1,13 @@
-import { ArrowRight, Star, Shield, Award, Heart } from "lucide-react";
+import { Star, Shield, Award, Heart } from "lucide-react";
 import ProductSlider from "../components/ProductSlider";
 import { products as allProducts } from "../data/products";
+import { ShoppingCart } from "lucide-react";
 
 export default function Home({ onNavigate }) {
-  const featuredProducts = allProducts.slice(0, 3);
+  const featuredProducts = allProducts.slice(0, 4);
+  const handleView = (id) => {
+    if (onNavigate) onNavigate(`/product/${id}`);
+  };
 
   return (
     <div className="min-h-screen">
@@ -61,23 +65,73 @@ export default function Home({ onNavigate }) {
 
       <section className="py-20 bg-gradient-to-b from-white to-amber-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Heading */}
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
               Featured Luxury Furniture
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600">
               Handpicked pieces by Solvexia Furniture
             </p>
           </div>
 
-          <ProductSlider products={featuredProducts} onNavigate={onNavigate} />
+          {/* 4 Cards Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {featuredProducts.slice(0, 4).map((product, index) => (
+              <div
+                key={product.id}
+                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden h-40 sm:h-52 md:h-56 lg:h-64">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <button className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-sm p-2 sm:p-3 rounded-full shadow-lg transform -translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
+                    {/* <ShoppingCart className="text-amber-600" size={20} /> */}
+                  </button>
+                </div>
+
+                {/* Content */}
+                <div className="p-3 sm:p-5 text-center">
+                  <span className="text-xs sm:text-sm font-semibold text-amber-600 bg-amber-50 px-2 sm:px-3 py-1 rounded-full">
+                    {product.category}
+                  </span>
+
+                  <h3 className="text-base sm:text-lg lg:text-2xl font-bold text-gray-900 mt-2 sm:mt-3 mb-1 sm:mb-2">
+                    {product.name}
+                  </h3>
+
+                  <p className="text-gray-600 text-xs sm:text-sm md:text-base mb-3 sm:mb-4 line-clamp-2">
+                    {product.description}
+                  </p>
+
+                  <div className="flex items-center justify-between">
+                    <span className="text-lg sm:text-2xl lg:text-3xl font-bold text-amber-700">
+                      Rs {product.price}
+                    </span>
+                    <button
+                      onClick={() => handleView(product.id)}
+                      className="bg-amber-600 hover:bg-amber-700 text-white px-4 sm:px-6 py-1.5 sm:py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-300 transform hover:scale-105"
+                    >
+                      View
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl lg:text-5xl font-bold text-gray-900 mb-4">
               Why Choose Solvexia Furniture
             </h2>
             <p className="text-xl text-gray-600">Excellence in every detail</p>
