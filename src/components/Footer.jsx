@@ -19,6 +19,7 @@ export default function Footer({ onNavigate }) {
                 alt="Solvexia"
                 className="h-10 w-auto"
               />
+
               <span className="text-2xl font-bold">Solvexia</span>
             </div>
             <p className="text-gray-400 mb-4">

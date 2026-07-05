@@ -91,7 +91,7 @@ export default function Contact() {
               {
                 icon: Mail,
                 title: "Email Us",
-                info: "hello@solvexia.com",
+                info: "info@solvexia.pk",
                 subInfo: "We reply within 24hrs",
                 color: "from-amber-500 to-amber-600",
               },
