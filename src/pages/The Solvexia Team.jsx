@@ -1,5 +1,5 @@
 import React from "react";
-import FullStack_Developer from "../images/zainRaza.jfif";
+import FullStack_Developer from "../images/zainRaza.jpeg";
 import Frontend_Devloper from "../images/MalikZeeshan.jfif";
 import UI_UX_Designer from "../images/SidraUiUx.jpg";
 import QA_Performance from "../images/HamzaAsghar.jfif"; // <-- make sure this image exists
