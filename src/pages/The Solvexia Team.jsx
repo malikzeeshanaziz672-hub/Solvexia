@@ -184,6 +184,20 @@ export default function TheSolvexiaTeam() {
           </div>
         </div>
       </section>
+      <section className="bg-gray-50 border-t border-gray-200">
+        <div className="max-w-6xl mx-auto px-6 py-20 text-center">
+          FreeStudy.pk is an online educational platform dedicated to making
+          quality education more accessible. Students can access free learning
+          resources, mathematics lessons, step-by-step solutions, notes,
+          practice questions, and educational updates. With a one-time
+          registration fee, students can receive full-year tuition support
+          through FreeStudy.pk, with no recurring monthly tuition fee. The
+          platform is designed to provide students with continuous academic
+          support throughout the year. Visit FreeStudy.pk to explore free
+          educational resources, mathematics solutions, and year-round tuition
+          support.
+        </div>
+      </section>
     </div>
   );
 }

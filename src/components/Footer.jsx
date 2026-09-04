@@ -100,16 +100,7 @@ export default function Footer({ onNavigate }) {
           <div>
             <h3 className="text-lg font-bold mb-4">Newsletter</h3>
             <p className="text-gray-400 mb-4">
-              FreeStudy.pk is an online educational platform dedicated to making
-              quality education more accessible. Students can access free
-              learning resources, mathematics lessons, step-by-step solutions,
-              notes, practice questions, and educational updates. With a
-              one-time registration fee, students can receive full-year tuition
-              support through FreeStudy.pk, with no recurring monthly tuition
-              fee. The platform is designed to provide students with continuous
-              academic support throughout the year. Visit FreeStudy.pk to
-              explore free educational resources, mathematics solutions, and
-              year-round tuition support.
+              Subscribe to get special offers and updates
             </p>
             <div className="flex">
               <input
